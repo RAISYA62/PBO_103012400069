@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header"></div>
+
+    <div class="container">
+      <div class="sidebar">
+        <div class="gambar-box">gambar</div>
+      </div>
+
+      <div class="main-content">
+        <div class="tabs">
+          <div class="tab active" data-tab="tab1">TAB 1</div>
+          <div class="tab" data-tab="tab2">TAB 2</div>
+        </div>
+
+        <div id="tab1" class="tab-content active">
+          <div class="chat-area">
+            <div class="message-input-wrapper">
+              <input type="text" class="message-input" placeholder="Type message..." />
+              <button class="send-btn">send</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab2" class="tab-content">
+          <div class="chat-area">
+            <div class="message-input-wrapper">
+              <input type="text" class="message-input" placeholder="Type message..." />
+              <button class="send-btn">send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll(".tab").forEach((tab) => {
+        tab.addEventListener("click", function () {
+          const tabName = this.getAttribute("data-tab");
+
+          // Remove active class from all tabs and contents
+          document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
+          document.querySelectorAll(".tab-content").forEach((content) => content.classList.remove("active"));
+
+          // Add active class to clicked tab and corresponding content
+          this.classList.add("active");
+          document.getElementById(tabName).classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
